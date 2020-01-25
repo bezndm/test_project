@@ -95,17 +95,27 @@ void OperatorEditor::footerOperatorEditor(void)
 
 void OperatorEditor::SlotButtonClose()
 {
+    lineEditName->clear();
+    lineEditMcc->clear();
+    lineEditMnc->clear();
+
     OperatorEditor::close();
 }
 
 
 void OperatorEditor::SlotButtonSave()
 {
+        OperatorEditor::close();
     ptrManagerStorage->insert_operator(_operatorStorage);
 
     emit signalUpdateVisualTree();
 
-    OperatorEditor::close();
+
+    lineEditName->clear();
+    lineEditMcc->clear();
+    lineEditMnc->clear();
+
+
 }
 
 
@@ -117,6 +127,9 @@ void OperatorEditor::nameChanged(const QString &)
 void OperatorEditor::mccChanged(const QString &)
 {
     _operatorStorage.set_mcc(lineEditMcc->text());
+    IconOperatorPath = ":/Operators/" + _operatorStorage.get_mcc() + "_" + _operatorStorage.get_mnc() + ".png";
+
+    IconCountryPath = IconDefaultPath;
 
     for(int i = 0; i < ptrManagerStorage->listCountryStorage.length(); i++)
     {
@@ -125,20 +138,14 @@ void OperatorEditor::mccChanged(const QString &)
         {
             IconCountryPath = ":/Countries/" + tempStorage.get_code() + ".png";
 
-            QFileInfo File(IconCountryPath);
-            if(!File.exists())
-            {
-                secondIcon->setPixmap( IconDefaultPath );
-            }
-
-            else if(File.isReadable())
-            {
-                secondIcon->setPixmap( IconCountryPath );
-            }
-
             break;
         }
+    }
 
+    QFileInfo File(IconCountryPath);
+    if(File.exists())
+    {
+        secondIcon->setPixmap( IconCountryPath );
     }
 
 

@@ -5,8 +5,8 @@ ConnectDatabase::ConnectDatabase()
     database = new QSqlDatabase(QSqlDatabase::addDatabase("QSQLITE"));
 
     database->setHostName("localhost");
-    database->setDatabaseName(QCoreApplication::applicationDirPath() + "/system.db");
-   // database->setDatabaseName("C:/Users/Dima Beznosko/Desktop/Work/system.db");
+   // database->setDatabaseName(QCoreApplication::applicationDirPath() + "/system.db");
+    database->setDatabaseName("C:/Users/Dima Beznosko/Desktop/Work/system.db");
     database->setUserName("");
     database->setPassword("");
 

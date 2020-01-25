@@ -118,6 +118,7 @@ void OperatorEditorUpdate::UpdateOperatorEditor(OperatorStorage _operatorStorage
 
 void OperatorEditorUpdate::SlotButtonSave()
 {
+        OperatorEditorUpdate::close();
     _operatorStorage.set_name(lineEditName->text());
     _operatorStorage.set_mcc(lineEditMcc->text());
     _operatorStorage.set_mnc(lineEditMnc->text());
@@ -127,7 +128,7 @@ void OperatorEditorUpdate::SlotButtonSave()
 
     emit signalUpdateVisualTree();
 
-    OperatorEditorUpdate::close();
+
 
 }
 

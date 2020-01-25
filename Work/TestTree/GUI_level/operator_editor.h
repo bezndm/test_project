@@ -65,6 +65,7 @@ private:
     void footerOperatorEditor(void);
 
     void fileIsValid(QString path);
+    void fileIsValid2(QString path);
     void fileCountryIsValid(void);
 
 
