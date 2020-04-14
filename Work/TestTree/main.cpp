@@ -13,6 +13,7 @@ int main(int argc, char *argv[])
     window.resize(600,700);
     // 1 commit
     // 2 commit
+    // 3 commit
     window.show();
 
     return app.exec();
