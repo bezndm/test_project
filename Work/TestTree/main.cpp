@@ -11,7 +11,7 @@ int main(int argc, char *argv[])
     window.setMinimumWidth(500);
     window.setMaximumSize(1920,1080);
     window.resize(600,700);
-    // brunch
+    // commit 1
     window.show();
 
     return app.exec();
